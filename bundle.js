@@ -7,7 +7,7 @@ function createNewNode() {
     let newNode = document.createElement(`li`)
     newNode.id = i
     let beforeBtn = document.createElement(`button`)
-    beforeBtn.textContent = `<`
+    beforeBtn.textContent = `+`
     beforeBtn.className = `btn btn-primary`
     beforeBtn.onclick = (e) => {
         insertBefore(e, createNewNode())
@@ -19,7 +19,7 @@ function createNewNode() {
         deleteNode(e)
     }
     let afterBtn = document.createElement(`button`)
-    afterBtn.textContent = `>`
+    afterBtn.textContent = `+`
     afterBtn.className = `btn btn-primary`
     afterBtn.onclick = (e) => {
         insertAfter(e, createNewNode())
@@ -39,7 +39,7 @@ function createFirstNode() {
     let newNode = document.createElement(`li`)
     newNode.id = i
     let beforeBtn = document.createElement(`button`)
-    beforeBtn.textContent = `<`
+    beforeBtn.textContent = `+`
     beforeBtn.className = `btn btn-primary`
     beforeBtn.onclick = (e) => {
         insertBefore(e, createNewNode())
@@ -51,7 +51,7 @@ function createFirstNode() {
         deleteNode(e)
     }
     let afterBtn = document.createElement(`button`)
-    afterBtn.textContent = `>`
+    afterBtn.textContent = `+`
     afterBtn.className = `btn btn-primary`
     afterBtn.onclick = (e) => {
         insertAfter(e, createNewNode())

@@ -1,0 +1,24 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "LIVE HERE <code>https://shalomtou.github.io/suggestion-vanilla/</code>",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify main.js > bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShalomTou/suggestion-vanilla.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShalomTou/suggestion-vanilla/issues"
+  },
+  "homepage": "https://github.com/ShalomTou/suggestion-vanilla#readme",
+  "dependencies": {
+    "an-array-of-english-words": "^2.0.0",
+    "browserify": "^17.0.0"
+  }
+}

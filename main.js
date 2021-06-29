@@ -182,5 +182,14 @@ function autocomplete(inp, arr) {
     });
 }
 
+// submit btn
+document.querySelector(`#submit`).addEventListener(`click`,(e)=>{
+    let itemsLi = Array.from(document.querySelectorAll(`li`)) 
+    let values = itemsLi.map(item=>{return item.childNodes})
+    let data = values.map(innerItems=>{return innerItems[2].value})
+    console.log(data)
+    alert(data)
+})
+
 
 createFirstNode()

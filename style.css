@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;  
+    box-sizing: border-box;
+    background-image: url(./backgournd.png);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+form{
+    text-align: center;
+    background: #f1f1f1;
+    border: 1px solid #0c0c0c;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+
+}
+
+li {
+    margin: 15px;
+    list-style: none;
+}
+
+input {
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    padding: 10px;
+
+}
+
+input[type=text] {
+    background-color: #f1f1f1;
+    width: 100%;
+}
+
+input[type=submit] {
+    background-color: DodgerBlue;
+    color: #fff;
+}
+
+.autocomplete-items {
+    position: relative;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    width: 150px;
+    left: 72px;
+    right: 0;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+    background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}
+#submit{
+    margin: 5px;
+}

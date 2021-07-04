@@ -211,13 +211,11 @@ document.querySelector(`#submit`).addEventListener(`click`, (e) => {
 
 // event listner on Tab to add new words
 document.addEventListener(`keydown`, (e) => {
-    if (e.key === `Alt`) {
+    if (e.keyCode == 32 && e.ctrlKey) {
         insertAfter(e, createNewNode())
-    } else if (e.key === `\``) {
+    } else if (e.keyCode == 32 && e.shiftKey) {
         insertBefore(e, createNewNode())
     }
-    console.log(e.key)
-
 })
 
 

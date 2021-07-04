@@ -26,7 +26,7 @@ function createNewNode() {
     let input = document.createElement(`input`)
     input.placeholder = `new node ${i++}`
     input.onkeyup = (e) => {
-        listner(e)
+        clocker(e)
     }
     newNode.append(beforeBtn, deleteBtn, input, afterBtn)
     return newNode
@@ -56,9 +56,9 @@ function createFirstNode() {
         insertAfter(e, createNewNode())
     }
     let input = document.createElement(`input`)
-    input.placeholder = `new node ${i++}`
+    input.placeholder = `new word ${i++}`
     input.onkeyup = (e) => {
-        listner(e)
+        clocker(e)
     }
     newNode.append(beforeBtn, deleteBtn, input, afterBtn)
     ul.append(newNode)
@@ -73,23 +73,36 @@ function deleteNode(e) {
 function insertAfter(e, newNode) {
     e.preventDefault()
     let referenceNode = e.target.parentNode
-    console.log(`nodeID=>`,newNode.id)
+    if (referenceNode.nodeName === `LI`) {
+        console.log(referenceNode, referenceNode.nodeName)
+        console.log(`nodeID=>`, newNode.id)
+    } else {
+        referenceNode = document.querySelectorAll(`LI`)[0]
+        console.log(referenceNode)
+    }
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
 function insertBefore(e, newNode) {
     e.preventDefault()
     let referenceNode = e.target.parentNode
-    console.log(`nodeID=>`,newNode.id)
+    if (referenceNode.nodeName === `LI`) {
+        console.log(referenceNode, referenceNode.nodeName)
+        console.log(`nodeID=>`, newNode.id)
+    } else {
+        referenceNode = document.querySelectorAll(`LI`)[0]
+        console.log(referenceNode)
+    }
     referenceNode.parentNode.insertBefore(newNode, referenceNode);
+
 }
 
-function listner(e) {
+function clocker(e) {
     let timer = false
     e.preventDefault()
     clearTimeout(timer)
     timer = setTimeout(() => {
-        console.log(`word to search`,e.target.value)
+        console.log(`word to search`, e.target.value)
         autocomplete(e.target, getMatchingWords(e.target.value))
     }, 300)
 }
@@ -105,7 +118,7 @@ function getMatchingWords(target) {
 
 
 function autocomplete(inp, arr) {
-    console.log(`inp.id`,inp.parentNode.id)
+    console.log(`inp.id`, inp.parentNode.id)
     var currentFocus;
     var a, b, i, val = inp.value;
     var valuesArray = []
@@ -115,7 +128,7 @@ function autocomplete(inp, arr) {
     }
     currentFocus = -1;
     a = document.createElement("DIV");
-    a.setAttribute("id", inp.parentNode.id+ "autocomplete-list");
+    a.setAttribute("id", inp.parentNode.id + "autocomplete-list");
     a.setAttribute("class", "autocomplete-items");
     inp.parentNode.appendChild(a);
     for (i = 0; i < arr.length; i++) {
@@ -183,12 +196,27 @@ function autocomplete(inp, arr) {
 }
 
 // submit btn
-document.querySelector(`#submit`).addEventListener(`click`,(e)=>{
-    let itemsLi = Array.from(document.querySelectorAll(`li`)) 
-    let values = itemsLi.map(item=>{return item.childNodes})
-    let data = values.map(innerItems=>{return innerItems[2].value})
+document.querySelector(`#submit`).addEventListener(`click`, (e) => {
+    let itemsLi = Array.from(document.querySelectorAll(`li`))
+    let values = itemsLi.map(item => {
+        return item.childNodes
+    })
+    let data = values.map(innerItems => {
+        return innerItems[2].value
+    })
     console.log(data)
     alert(data)
+})
+
+// event listner on Tab to add new words
+document.addEventListener(`keydown`, (e) => {
+    if (e.key === `Alt`) {
+        insertAfter(e, createNewNode())
+    } else if (e.key === `\``) {
+        insertBefore(e, createNewNode())
+    }
+    console.log(e.key)
+
 })
 
 
